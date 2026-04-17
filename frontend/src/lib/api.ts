@@ -13,7 +13,7 @@ export type PostDetail = {
 };
 
 const BACKEND_URL =
-  process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:4000";
+  process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:4001";
 
 export async function getPosts(): Promise<PostSummary[]> {
   const res = await fetch(`${BACKEND_URL}/api/posts`, {

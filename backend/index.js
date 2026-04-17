@@ -6,7 +6,7 @@ const fs = require("fs/promises");
 
 const app = express();
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 4000;
+const PORT = process.env.PORT ? Number(process.env.PORT) : 4001;
 const CONTENT_DIR = path.join(__dirname, "..", "content", "posts");
 const DATA_DIR = path.join(__dirname, "..", "data");
 const CONTACTS_FILE = path.join(DATA_DIR, "contacts.jsonl");
