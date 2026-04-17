@@ -3,7 +3,7 @@ import { getPosts } from "@/lib/api";
 
 export default async function BlogPage() {
   const posts = await getPosts();
-
+console.log(posts);
   return (
     <section className="mx-auto w-full max-w-6xl px-4 pb-20 pt-10">
       <div className="mb-8">

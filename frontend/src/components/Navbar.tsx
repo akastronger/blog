@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -50,7 +51,7 @@ export default function Navbar() {
             })}
 
             <Link
-              href="/ai"
+              href="https://www.doubao.com/chat/"
               className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/20"
             >
               <Sparkles className="h-4 w-4" />
@@ -60,7 +61,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2 md:hidden">
             <Link
-              href="/ai"
+              href="https://www.doubao.com/chat/"
               className="rounded-full bg-white/15 p-2 text-white hover:bg-white/20"
               aria-label="AI Chat"
             >

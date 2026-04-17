@@ -23,7 +23,7 @@ export default function Hero() {
           <div className="mt-8 flex items-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-[#6b1eff] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white/90"
+              className="inline-flex items-center justify-center rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#6b1eff]"
             >
               Get in Touch
             </Link>
