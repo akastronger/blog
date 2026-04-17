@@ -9,7 +9,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-3 rounded-full bg-white/10 px-4 py-2 text-sm text-white/90 backdrop-blur-md">
             <span className="font-semibold">Stronger</span>
             <span className="h-1 w-1 rounded-full bg-white/60" />
-            <span>Idealist &amp; AI Superindividual</span>
+            <span>会写代码的背包客</span>
           </div>
 
           <h1 className="mt-6 text-5xl font-semibold tracking-tight text-white md:text-6xl">
@@ -23,7 +23,7 @@ export default function Hero() {
           <div className="mt-8 flex items-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-white/90"
+              className="inline-flex items-center justify-center rounded-full bg-[#6b1eff] px-6 py-3 text-sm font-semibold text-black transition hover:bg-white/90"
             >
               Get in Touch
             </Link>

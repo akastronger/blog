@@ -119,7 +119,7 @@ export default function Navbar() {
                   className="inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  Get in Touch
+                  Get in Touch  
                 </Link>
               </div>
             </div>
