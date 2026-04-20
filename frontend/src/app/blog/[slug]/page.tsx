@@ -6,17 +6,18 @@ import { getPost } from "@/lib/api";
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string } | Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
   let post;
   try {
-    post = await getPost(params.slug);
+    post = await getPost(slug);
   } catch {
     notFound();
   }
 
   return (
-    <article className="mx-auto w-full max-w-3xl px-4 pb-20 pt-10">
+    <article className="mx-auto w-full max-w-6xl px-4 pb-20 pt-10">
       <div className="rounded-2xl border border-white/10 bg-white/10 p-6 backdrop-blur-md">
         <div className="flex items-start justify-between gap-4">
           <div>

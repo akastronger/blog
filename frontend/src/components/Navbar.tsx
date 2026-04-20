@@ -6,11 +6,11 @@ import { useMemo, useState } from "react";
 import { GitFork, MessageCircle, Sparkles } from "lucide-react";
 
 const NAV_ITEMS = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "首页" },
+  { href: "/about", label: "说说" },
+  { href: "/portfolio", label: "生活" },
+  { href: "/blog", label: "文章" },
+  { href: "/contact", label: "留言" },
 ];
 
 export default function Navbar() {
@@ -21,7 +21,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="mx-auto w-full max-w-6xl px-4">
+      <div className="mx-auto w-full max-w-7xl px-4">
         <div className="mt-3 flex items-center justify-between rounded-2xl bg-white/10 px-4 py-3 backdrop-blur-md">
           <Link
             href="/"

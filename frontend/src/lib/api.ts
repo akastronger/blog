@@ -24,7 +24,8 @@ export async function getPosts(): Promise<PostSummary[]> {
 }
 
 export async function getPost(slug: string): Promise<PostDetail> {
-  const res = await fetch(`${BACKEND_URL}/api/posts/${slug}`, {
+  const safeSlug = encodeURIComponent(slug);
+  const res = await fetch(`${BACKEND_URL}/api/posts/${safeSlug}`, {
     cache: "no-store",
   });
   if (!res.ok) throw new Error("Post not found");

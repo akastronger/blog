@@ -20,7 +20,9 @@ export default function Carousel() {
   );
 
   const [index, setIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
+  const AUTOPLAY_MS = 5000;
 
   const goTo = useCallback(
     (next: number) => {
@@ -34,6 +36,17 @@ export default function Carousel() {
   const next = useCallback(() => goTo(index + 1), [goTo, index]);
 
   useEffect(() => {
+    if (isPaused) return;
+    if (slides.length <= 1) return;
+
+    const id = window.setInterval(() => {
+      setIndex((i) => (i + 1) % slides.length);
+    }, AUTOPLAY_MS);
+
+    return () => window.clearInterval(id);
+  }, [isPaused, slides.length]);
+
+  useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") prev();
       if (e.key === "ArrowRight") next();
@@ -44,11 +57,18 @@ export default function Carousel() {
 
   return (
     <section className="mx-auto w-full pb-20">
-      <div className="relative overflow-hidden  border-white/10 bg-white/5 backdrop-blur-md">
+      <div
+        className="relative overflow-hidden  border-white/10 bg-white/5 backdrop-blur-md"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onFocusCapture={() => setIsPaused(true)}
+        onBlurCapture={() => setIsPaused(false)}
+      >
         <div
           className="flex transition-transform duration-300 ease-out"
           style={{ transform: `translateX(-${index * 100}%)` }}
           onTouchStart={(e) => {
+            setIsPaused(true);
             touchStartX.current = e.touches[0]?.clientX ?? null;
           }}
           onTouchEnd={(e) => {
@@ -60,6 +80,7 @@ export default function Carousel() {
             if (Math.abs(dx) < 40) return;
             if (dx > 0) prev();
             else next();
+            setIsPaused(false);
           }}
         >
           {slides.map((s) => (
@@ -81,7 +102,10 @@ export default function Carousel() {
         <button
           type="button"
           aria-label="Previous slide"
-          onClick={prev}
+          onClick={() => {
+            setIsPaused(true);
+            prev();
+          }}
           className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/35 p-2 text-white ring-1 ring-white/20 backdrop-blur-md transition hover:bg-black/45"
         >
           <ChevronLeft className="h-5 w-5" />
@@ -89,7 +113,10 @@ export default function Carousel() {
         <button
           type="button"
           aria-label="Next slide"
-          onClick={next}
+          onClick={() => {
+            setIsPaused(true);
+            next();
+          }}
           className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/35 p-2 text-white ring-1 ring-white/20 backdrop-blur-md transition hover:bg-black/45"
         >
           <ChevronRight className="h-5 w-5" />
@@ -101,7 +128,10 @@ export default function Carousel() {
               key={s.alt}
               type="button"
               aria-label={`Go to slide ${i + 1}`}
-              onClick={() => goTo(i)}
+              onClick={() => {
+                setIsPaused(true);
+                goTo(i);
+              }}
               className={[
                 "h-2 w-2 rounded-full ring-1 ring-white/30 transition",
                 i === index ? "bg-white" : "bg-white/30 hover:bg-white/50",
