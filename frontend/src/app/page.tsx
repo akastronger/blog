@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
+import Interests from "@/components/Interests";
 import Carousel from "@/components/Carousel";
 import AIChatCTA from "@/components/AIChatCTA";
+
 
 export default function Home() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -30,9 +32,9 @@ export default function Home() {
     <div className="min-h-full">
       <Hero />
       <Skills />
-      <Carousel />
+      <Interests />
       <AIChatCTA />
-      
+       <Carousel />
       {showBackToTop && (
         <button
           onClick={scrollToTop}

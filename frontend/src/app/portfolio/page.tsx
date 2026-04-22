@@ -179,7 +179,7 @@ export default function PortfolioPage() {
             <div className="relative h-[80vh] w-full">
               <Image
                 src={previewPhoto.src}
-                alt={previewPhoto.alt}
+                alt={''}
                 fill
                 unoptimized
                 sizes="100vw"

@@ -22,7 +22,7 @@
 body {
   /* 炫黑渐变：深黑底 + 冷色高光层 */
   background:
-    radial-gradient(900px circle at 15% 10%, rgba(56, 189, 248, 0.18), transparent 55%),
+    radial-gradient(900px circle at 15% 10%, rgba(56, 189, 248, 0.18), transparent 15%),
     radial-gradient(800px circle at 85% 20%, rgba(167, 139, 250, 0.16), transparent 52%),
     radial-gradient(700px circle at 50% 85%, rgba(16, 185, 129, 0.10), transparent 60%),
     linear-gradient(160deg, #020204 0%, #070712 40%, #000000 100%);

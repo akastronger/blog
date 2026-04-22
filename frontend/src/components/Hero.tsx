@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SocialLinks from "@/components/SocialLinks";
 
 export default function Hero() {
   return (
@@ -17,7 +18,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-4 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
-            做一个真诚、靠谱、可爱的人
+            热爱劲逐每分每秒钟，轻轻一笑挫折再用功
           </p>
 
           <div className="mt-8 flex items-center gap-4">
@@ -25,10 +26,10 @@ export default function Hero() {
               href="/contact"
               className="inline-flex items-center justify-center rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#6b1eff]"
             >
-              Get in Touch
+             社交媒体
             </Link>
             <div className="text-sm font-medium text-white/70">
-              Next.js + Node/Express
+               <SocialLinks popoverAlign="left" />
             </div>
           </div>
         </div>
