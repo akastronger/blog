@@ -78,7 +78,7 @@ export default function ContactForm() {
         disabled={loading}
         className="w-full rounded-xl bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-white/90 disabled:opacity-60"
       >
-        {loading ? "发送中..." : "Send"}
+        {loading ? "发送中..." : "发送"}
       </button>
 
       {status ? (

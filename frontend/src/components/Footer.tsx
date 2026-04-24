@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="mt-5 h-px w-full bg-white/10" />
 
         <div className="mt-4 flex flex-col gap-3 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
-          <div>© {year} Stronger. 版本所有解释权</div>
+          <div>© {year} By Bboy AkaStronger</div>
           <div className="flex items-center gap-4 md:gap-6">
             <Link href="#" className="hover:text-white/70">
               隐私政策
