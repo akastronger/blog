@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { X } from "lucide-react";
 
 type InterestKey = "dance" | "basketball" | "calligraphy" | "music" | "motorcycle";
@@ -12,6 +12,7 @@ const INTERESTS: Array<{
   logoSrc: string;
   logoAlt: string;
   color: string;
+  videoSrc?: string;
 }> = [
   {
     key: "dance",
@@ -19,6 +20,7 @@ const INTERESTS: Array<{
     logoSrc: "/interests/dance.svg",
     logoAlt: "dance",
     color: "from-fuchsia-400/25 to-violet-500/20",
+    videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
   },
   {
     key: "basketball",
@@ -26,6 +28,7 @@ const INTERESTS: Array<{
     logoSrc: "/interests/basketball.svg",
     logoAlt: "Basketball",
     color: "from-amber-400/25 to-orange-500/20",
+    videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
   },
   {
     key: "motorcycle",
@@ -33,6 +36,7 @@ const INTERESTS: Array<{
     logoSrc: "/interests/motorcycle.svg",
     logoAlt: "Motorcycle",
     color: "from-slate-400/25 to-zinc-400/20",
+    videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
   },
   {
     key: "calligraphy",
@@ -40,6 +44,7 @@ const INTERESTS: Array<{
     logoSrc: "/interests/calligraphy.svg",
     logoAlt: "Calligraphy",
     color: "from-emerald-400/20 to-teal-500/20",
+    videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
   },
   {
     key: "music",
@@ -47,82 +52,15 @@ const INTERESTS: Array<{
     logoSrc: "/interests/music.svg",
     logoAlt: "Music",
     color: "from-sky-400/25 to-cyan-500/20",
+    videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
   },
   
 ];
-
-type WorkItem = { title: string; description: string; meta?: string };
 
 export default function Interests() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<InterestKey>("dance");
   const baseId = useId();
-
-  const worksByInterest: Record<InterestKey, WorkItem[]> = useMemo(
-    () => ({
-      dance: [
-        {
-          title: "Freestyle 片段合集",
-          description: "街舞练习日常与即兴片段的整理，持续更新节奏与身体控制。",
-          meta: "视频 · 练习",
-        },
-        {
-          title: "编舞 Demo",
-          description: "一段 30–60 秒的编舞 Demo，用于记录当下的风格与音乐理解。",
-          meta: "视频 · 编舞",
-        },
-      ],
-      basketball: [
-        {
-          title: "投篮训练记录",
-          description: "从姿势到节奏的复盘：定点、移动、急停、三分手感记录。",
-          meta: "记录 · 训练",
-        },
-        {
-          title: "野球局精彩回合",
-          description: "防守、挡拆、快攻等回合剪辑，突出决策与对抗。",
-          meta: "视频 · 对抗",
-        },
-      ],
-      calligraphy: [
-        {
-          title: "临摹习作",
-          description: "以碑帖临摹为主，关注笔法与结构，阶段性对比进步。",
-          meta: "图片 · 习作",
-        },
-        {
-          title: "小字练习",
-          description: "在有限空间里保持字形稳定，练耐心与专注。",
-          meta: "图片 · 练习",
-        },
-      ],
-      music: [
-        {
-          title: "歌单与听感笔记",
-          description: "按情绪/场景整理歌单，并记录旋律、编曲与律动的感受。",
-          meta: "笔记 · 听歌",
-        },
-        {
-          title: "节拍练习",
-          description: "用节拍器做基础练习，强化对拍点与切分的敏感度。",
-          meta: "练习 · 节奏",
-        },
-      ],
-      motorcycle: [
-        {
-          title: "骑行路线收藏",
-          description: "适合周末短途的路线记录：风景、路况与补给点。",
-          meta: "路线 · 出行",
-        },
-        {
-          title: "装备与保养清单",
-          description: "头盔、护具、雨具与日常保养要点的清单化整理。",
-          meta: "清单 · 安全",
-        },
-      ],
-    }),
-    []
-  );
 
   const title = INTERESTS.find((x) => x.key === active)?.label ?? "兴趣";
   const panelId = `${baseId}-panel`;
@@ -192,7 +130,7 @@ export default function Interests() {
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={`${title}作品`}
+          aria-label={`${title}视频`}
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
         >
           <button
@@ -204,12 +142,12 @@ export default function Interests() {
 
           <div
             id={panelId}
-            className="relative w-full max-w-2xl rounded-2xl border border-white/10 bg-[#0b1220] p-5 text-white shadow-2xl"
+            className="relative w-full max-w-4xl rounded-2xl border border-white/10 bg-[#0b1220] p-5 text-white shadow-2xl"
           >
             <div className="flex items-center justify-between gap-4">
               <div>
-                <div className="text-sm font-semibold text-white">{title}</div>
-                <div className="mt-1 text-xs text-white/60">作品 / 记录</div>
+                <div className="text-sm font-semibold text-white">{title}视频</div>
+                <div className="mt-1 text-xs text-white/60">各类视频内容</div>
               </div>
               <button
                 type="button"
@@ -220,7 +158,24 @@ export default function Interests() {
                 <X className="h-4 w-4" />
               </button>
             </div>
-      
+
+            {/* 视频 */}
+            <div className="mt-6">
+              <div className="aspect-video rounded-xl overflow-hidden border border-white/10">
+                <video
+                  className="w-full h-full"
+                  controls
+                  poster="https://via.placeholder.com/800x450?text=Video+Placeholder"
+                >
+                  <source src={INTERESTS.find((x) => x.key === active)?.videoSrc} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              
+              <div className="mt-4 text-center text-sm text-white/70">
+                当前视频：{INTERESTS.find((x) => x.key === active)?.videoSrc || '未设置'}
+              </div>
+            </div>
           </div>
         </div>
       ) : null}
