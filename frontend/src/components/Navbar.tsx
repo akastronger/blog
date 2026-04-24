@@ -7,7 +7,7 @@ import { GitFork, MessageCircle, Sparkles } from "lucide-react";
 
 const NAV_ITEMS = [
   { href: "/", label: "首页" },
-  { href: "/about", label: "说说" },
+  { href: "/about", label: "原创" },
   { href: "/portfolio", label: "生活" },
   { href: "/blog", label: "文章" },
   { href: "/contact", label: "留言" },

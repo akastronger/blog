@@ -220,32 +220,11 @@ export default function Interests() {
                 <X className="h-4 w-4" />
               </button>
             </div>
-
-            <div className="mt-4 grid gap-3">
-              {worksByInterest[active].map((work) => (
-                <div
-                  key={work.title}
-                  className="rounded-xl border border-white/10 bg-white/5 p-4"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="text-sm font-semibold text-white/90">
-                      {work.title}
-                    </div>
-                    {work.meta ? (
-                      <div className="shrink-0 text-[11px] font-medium text-white/60">
-                        {work.meta}
-                      </div>
-                    ) : null}
-                  </div>
-                  <p className="mt-2 text-xs leading-relaxed text-white/70">
-                    {work.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+      
           </div>
         </div>
       ) : null}
+
     </section>
   );
 }

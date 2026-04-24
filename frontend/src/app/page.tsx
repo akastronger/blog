@@ -5,6 +5,7 @@ import { ArrowUp } from "lucide-react";
 import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
 import Interests from "@/components/Interests";
+import Goals2026 from "@/components/Goals2026";
 import Carousel from "@/components/Carousel";
 import AIChatCTA from "@/components/AIChatCTA";
 
@@ -33,8 +34,9 @@ export default function Home() {
       <Hero />
       <Skills />
       <Interests />
+      <Goals2026 />
       <AIChatCTA />
-       <Carousel />
+      <Carousel />
       {showBackToTop && (
         <button
           onClick={scrollToTop}
