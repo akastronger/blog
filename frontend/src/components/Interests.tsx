@@ -20,7 +20,7 @@ const INTERESTS: Array<{
     logoSrc: "/interests/dance.svg",
     logoAlt: "dance",
     color: "from-fuchsia-400/25 to-violet-500/20",
-    videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
+    videoSrc: "/solo.mp4",
   },
   {
     key: "basketball",
@@ -36,7 +36,7 @@ const INTERESTS: Array<{
     logoSrc: "/interests/motorcycle.svg",
     logoAlt: "Motorcycle",
     color: "from-slate-400/25 to-zinc-400/20",
-    videoSrc: "https://www.w3schools.com/html/mov_bbb.mp4",
+    videoSrc: "/motor.mp4",
   },
   {
     key: "calligraphy",
@@ -147,7 +147,7 @@ export default function Interests() {
             <div className="flex items-center justify-between gap-4">
               <div>
                 <div className="text-sm font-semibold text-white">{title}视频</div>
-                <div className="mt-1 text-xs text-white/60">各类视频内容</div>
+
               </div>
               <button
                 type="button"

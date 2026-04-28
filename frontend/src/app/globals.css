@@ -35,3 +35,78 @@ a {
   text-decoration: none;
 }
 
+/* Hero 头像：烟雾绕圈飘动 */
+@keyframes hero-smoke-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-smoke-blob-pulse {
+  0%,
+  100% {
+    opacity: 0.42;
+    filter: blur(var(--smoke-blur, 16px)) brightness(1);
+    transform: translateX(var(--r)) scaleX(1) scaleY(1);
+  }
+  35% {
+    opacity: 0.62;
+    filter: blur(calc(var(--smoke-blur, 16px) + 2px)) brightness(1.08);
+    transform: translateX(var(--r)) scaleX(1.08) scaleY(1.12);
+  }
+  70% {
+    opacity: 0.48;
+    filter: blur(var(--smoke-blur, 16px)) brightness(0.98);
+    transform: translateX(calc(var(--r) * 0.96)) scaleX(0.95) scaleY(1.05);
+  }
+}
+
+@keyframes hero-smoke-mist-drift {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.06);
+    opacity: 0.5;
+  }
+}
+
+.hero-smoke-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  transform-origin: center;
+  animation: hero-smoke-orbit linear infinite;
+}
+
+.hero-smoke-blob {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: center;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  animation: hero-smoke-blob-pulse ease-in-out infinite;
+}
+
+.hero-smoke-mist {
+  animation: hero-smoke-mist-drift linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-smoke-orbit,
+  .hero-smoke-blob,
+  .hero-smoke-mist {
+    animation: none !important;
+  }
+}
+
